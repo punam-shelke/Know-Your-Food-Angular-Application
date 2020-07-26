@@ -1,0 +1,49 @@
+<div class="card" *ngIf='receipe'>
+    <div class="card-header">
+        {{title }}
+    </div>
+
+    <div class='card-body'>
+        <div class='row'>
+            <div class='col-md-8'>
+                <div class='row'>
+                    <div class='col-md-4'>Name:</div>
+                    <div class='col-md-8'>{{receipe.title}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Id:</div>
+                    <div class='col-md-8'>{{receipe.id}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Description:</div>
+                    <div class='col-md-8'>{{receipe.image}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Availability:</div>
+                    <div class='col-md-8'>{{'Available'}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>Price:</div>
+                    <div class='col-md-8'>{{receipe.id%100+20|currency}}</div>
+                </div>
+                <div class='row'>
+                    <div class='col-md-4'>5 Star Rating:</div>
+                    <div class='col-md-8'>
+                        <app-rating [rating]='receipe.id%5+1'>
+                        </app-rating>
+                    </div>
+                </div>
+            </div>
+
+            <div class='col-md-4'>
+                <img class='center-block img-responsive' [style.width.px]='200' [style.margin.px]='2'
+                    [src]='receipe.image' [title]='receipe.title'>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-outline-secondary" (click)='goBack()' style="width: 80px;">
+            <i class="fa fa-chevron-left"> </i>Back
+        </button>
+    </div>
+</div>

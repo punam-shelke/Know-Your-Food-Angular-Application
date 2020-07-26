@@ -1,0 +1,45 @@
+<div class="card">
+    <div class="card-header">
+        {{pageTitle}}
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-2">Search</div>
+            <div class="col-md-4">
+                <input type="text" [(ngModel)]='searchText'>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Searched by:{{searchText}}</h4>
+            </div>
+        </div>
+        <div class="table-responsive">
+            <table class="table" *ngIf='receipes && receipes.length'>
+                <thead>
+                    <tr>
+                        <th>
+                            <button class="btn btn-primary" (click)='controlImage()'>
+                                {{displayimage ? 'Hide' : 'Show'}} image
+                            </button>
+                        </th>
+                        <th>Title</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let receipe of filtered'>
+                        <td>
+                            <img [src]="receipe.image" [alt]="receipe.title" [title]="receipe.title"
+                                [style.width.px]=imageWidth [style.margin.px]=imageMargin *ngIf='displayimage'>
+                        </td>
+                        <td><a [routerLink]="['/detail-receipe' , receipe.id]">{{receipe.title}}</a></td>
+                        <td>
+                            <app-rating [rating]='receipe.id % 5 + 1' (ratingevent)='replyEvent($event)'></app-rating>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

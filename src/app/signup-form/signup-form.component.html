@@ -1,0 +1,84 @@
+<div class="container">
+    <h2>SignUp</h2>
+    <form #form="ngForm" (ngSubmit)='onSubmit(form)'>
+        <div class="form-group">
+            <label for="fname">First Name</label>
+            <input id="fname" name="fname" class="form-control" placeholder="first name"
+                [(ngModel)]='userData.firstname' #fname='ngModel' required>
+            <div class="alert alert-danger" [hidden]='fname.valid || fname.untouched'>
+                Enter a First Name
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input id="lname" name="lname" class="form-control" placeholder="last name" [(ngModel)]='userData.lastname'
+                required #lname='ngModel'>
+            <div class="alert alert-danger" [hidden]='lname.valid || lname.untouched'>
+                Enter a Last Name
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" class="form-control" placeholder="email" [(ngModel)]='userData.email'
+                required #email='ngModel'>
+            <div class="alert alert-danger" [hidden]='email.valid || email.untouched'>
+                Enter email
+            </div>
+        </div>
+        <div class="form-check form-group">
+            <input type="checkbox" class="form-check-input" id="emailoffers" name="emailoffers"
+                [(ngModel)]='userData.promotion'>
+            <label for="emailoffers" class="form-check-label">
+                Send me Promotional emails
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="password">password</label>
+            <input type="password" class="form-control" id="password" name="password" [(ngModel)]='userData.password'
+                required #password='ngModel'>
+            <div class="alert alert-danger" [hidden]='password.valid || password.untouched'>
+                Enter password
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="cpassword">Confirm password</label>
+            <input type="password" class="form-control" id="cpassword" name="cpassword"
+                [(ngModel)]='userData.confirmPassword' required #cpassword='ngModel'>
+            <div class="alert alert-danger" [hidden]='cpassword.valid || cpassword.untouched'>
+                Confirm password
+            </div>
+        </div>
+        <h5>Gender</h5>
+        <div class="form-group">
+            <div class="form-check">
+                <input type="radio" class="form-check-input" name="gender" id="lightInterface" value="light"
+                    [(ngModel)]='userData.gender'>
+                <label for="lightInterface" class="form-check-label">Male</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" name="gender" id="mediumInterface" value="medium"
+                    [(ngModel)]='userData.gender'>
+                <label for="mediumInterface" class="form-check-label">Female</label>
+            </div>
+            <div class="form-check">
+                <input type="radio" class="form-check-input" name="gender" id="darkInterface" value="dark"
+                    [(ngModel)]='userData.gender'>
+                <label for="darkInterface" class="form-check-label">Rather not disclose</label>
+            </div>
+        </div>
+        <!-- <div class="form-group">
+            <label for="subscriptiontype">Subscription type</label>
+            <select id="subscriptiontype" class="form-control" name="subscriptiontype" ngModel>
+                <option>Monthly</option>
+                <option>Annualy</option>
+                <option>Lifetime</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="notes">Favourite Food</label>
+            <textarea name="notes" id="notes" rows="3" class="form-control" ngModel></textarea>
+        </div> -->
+
+        <button class="btn btn-primary"> Sign in</button>
+    </form>
+</div>

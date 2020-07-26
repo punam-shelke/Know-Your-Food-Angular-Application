@@ -1,0 +1,15 @@
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+    <a href="" class="navbar-brand">Know Your Food</a>
+    <ul class="nav nav-pills">
+        <li><a [routerLink]="['/welcome']" class="nav-link">Home</a></li>
+        <li><a [routerLink]="['/receipe']" class="nav-link">Food List</a></li>
+        <li><a [routerLink]="['/signup']" class="nav-link" *ngIf='!loggedIn'>SignUp</a></li>
+        <li class="nav-link" style="color:azure" *ngIf='!loggedIn'>OR</li>
+    </ul>
+    <a (click)='signInWithGoogle()' class="nav-link" *ngIf='!loggedIn'><i class="fa fa-google fa-2x fa-inverse"></i></a>
+    <img [src]='user.photoUrl' *ngIf='loggedIn' style="width: 20px;height: 20px; border-radius: 50%;">
+    <li><a (click)='signOut()' style="color:azure" *ngIf='loggedIn'>Sign Out</a></li>
+</nav>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
